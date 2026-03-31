@@ -1,0 +1,48 @@
+{
+  "summary": "Student in Finance at HEC Paris with a strong focus on M&A and Private Equity. Proven analytical skills through internships at Tier-1 banks and active involvement in university investment clubs. Seeking a Summer Analyst position to leverage financial modeling and valuation expertise.",
+  "education": [
+    {
+      "university": "HEC Paris",
+      "location": "Jouy-en-Josas, France",
+      "degree": "Master in Management, Specialization in Finance",
+      "date": "Expected June 2024",
+      "bullets": [
+        "<b>GPA:</b> 3.9 / 4.0",
+        "<b>Relevant Coursework:</b> Corporate Finance, Financial Accounting, M&A, LBO Modeling"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Goldman Sachs",
+      "location": "Paris, France",
+      "title": "Summer Analyst, Investment Banking Division",
+      "date": "June 2023 - August 2023",
+      "bullets": [
+        "Analyzed financial statements and built DCF, LBO, and trading comparables models to value potential targets.",
+        {
+          "main": "Selected Transaction Experience:",
+          "sub_bullets": [
+            "<b>Project Alpha:</b> Advised a €500M tech company on its sale to a private equity firm; created management presentations.",
+            "<b>Project Beta:</b> Conducted due diligence and market research for a cross-border M&A deal in the healthcare sector."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "University Finance Club",
+      "location": "Jouy-en-Josas, France",
+      "title": "Vice President",
+      "date": "September 2022 - Present",
+      "bullets": [
+        "Organized 10+ networking events and technical workshops for over 200 club members.",
+        "Managed a virtual portfolio of €50,000, achieving a 12% return over 6 months."
+      ]
+    }
+  ],
+  "skills": {
+    "Languages": "French (Native), English (Fluent), Spanish (Conversational)",
+    "Technical Skills": "Excel (Financial Modeling, VBA), PowerPoint, Bloomberg Terminal, Python",
+    "Interests": "Marathon running, Chess, Geopolitics, Backpacking across Southeast Asia"
+  }
+}
