@@ -1,5 +1,7 @@
 # 📄 CV Generator
 
+> 🧒 **In plain English:** You write your school, jobs, and skills in a simple text file, run the script, and it creates a beautiful professional CV as a PDF — like magic!
+
 A **Python-based PDF résumé generator**. Describe your background in a structured JSON file, run the script, and get a clean one-page PDF — ready to send.
 
 Designed for finance/consulting-style CVs (HEC, Goldman Sachs, McKinsey format): single-column layout, two-column title/date rows, bullets and sub-bullets.
