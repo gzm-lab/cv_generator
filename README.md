@@ -1,41 +1,41 @@
 # 📄 CV Generator
 
-Un générateur de CV **PDF professionnel** en Python. Décris ton parcours dans un fichier JSON structuré, lance le script, et obtiens un CV formaté d'une page impeccable — prêt à envoyer.
+A **Python-based PDF résumé generator**. Describe your background in a structured JSON file, run the script, and get a clean one-page PDF — ready to send.
 
-Conçu pour les CVs de finance/conseil au format standard (HEC, Goldman Sachs, McKinsey style) : layout une colonne, deux colonnes titre/date, bullets et sous-bullets.
+Designed for finance/consulting-style CVs (HEC, Goldman Sachs, McKinsey format): single-column layout, two-column title/date rows, bullets and sub-bullets.
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-- 📝 **Pilotage par JSON** — contenu 100% séparé du code
-- 📏 **Contrainte une page** — le script refuse de générer si le contenu déborde (protection anti-débordement)
-- 🔒 **Données personnelles isolées** — un fichier `personal.json` séparé (gitignore) pour ton adresse, email, téléphone
-- 🎨 **Layout professionnel** — Times Roman, colonnes alignées, séparateurs horizontaux, bullets/sous-bullets
-- ⚡ **Zéro dépendance cloud** — 100% local, aucune API externe
+- 📝 **JSON-driven** — content is 100% separated from the code
+- 📏 **One-page enforcement** — the script rejects generation if content overflows (overflow protection)
+- 🔒 **Isolated personal data** — a separate `personal.json` file (gitignored) for your address, email, and phone
+- 🎨 **Professional layout** — Times Roman, aligned columns, horizontal dividers, bullets/sub-bullets
+- ⚡ **Zero cloud dependency** — 100% local, no external APIs
 
 ## 🚀 Quick Start
 
-### Prérequis
+### Prerequisites
 
 ```bash
 pip install reportlab
 ```
 
-### 1. Crée ton fichier CV JSON
+### 1. Create your CV JSON file
 
-Copie et adapte `file/demo.json` :
+Copy and adapt `file/demo.json`:
 
 ```json
 {
-  "summary": "Étudiant en dernière année à HEC Paris, spécialisation Finance...",
+  "summary": "Final-year student at HEC Paris, Finance specialization...",
   "education": [
     {
       "university": "HEC Paris",
       "location": "Jouy-en-Josas, France",
-      "degree": "Master Grande École — Majeure Finance",
+      "degree": "Master Grande École — Finance Major",
       "date": "2023 – 2025",
       "bullets": [
-        "Classement top 5% de promotion",
-        "Membre du HEC Finance Club"
+        "Top 5% of graduating class",
+        "Member of the HEC Finance Club"
       ]
     }
   ],
@@ -43,85 +43,85 @@ Copie et adapte `file/demo.json` :
     {
       "company": "Goldman Sachs",
       "location": "Paris, France",
-      "title": "Analyste Stagiaire — Investment Banking",
-      "date": "Juin – Août 2024",
+      "title": "Investment Banking Analyst Intern",
+      "date": "Jun – Aug 2024",
       "bullets": [
-        "Modélisation financière (LBO, DCF) sur 3 transactions M&A (>500M€)",
+        "Financial modeling (LBO, DCF) on 3 M&A transactions (>€500M)",
         {
-          "main": "Préparation de pitch books pour des clients CAC 40",
+          "main": "Prepared pitch books for CAC 40 clients",
           "sub_bullets": [
-            "Analyse sectorielle et benchmarking concurrentiel",
-            "Valorisation par multiples de marché"
+            "Sector analysis and competitive benchmarking",
+            "Market multiple valuation"
           ]
         }
       ]
     }
   ],
   "skills": {
-    "Langues": "Français (natif), Anglais (C2), Espagnol (B2)",
-    "Compétences techniques": "Excel VBA, Bloomberg, Python (pandas, numpy), SQL",
-    "Centres d'intérêt": "Tennis (classé -15), Photographie"
+    "Languages": "French (native), English (C2), Spanish (B2)",
+    "Technical Skills": "Excel VBA, Bloomberg, Python (pandas, numpy), SQL",
+    "Interests": "Tennis (ranked), Photography"
   }
 }
 ```
 
-### 2. (Optionnel) Infos personnelles
+### 2. (Optional) Personal info
 
-Crée un fichier `personal.json` à la racine (ignoré par git) :
+Create a `personal.json` file at the root (gitignored):
 
 ```json
 {
-  "name": "Jean Dupont",
-  "email": "jean.dupont@hec.edu",
+  "name": "John Doe",
+  "email": "john.doe@hec.edu",
   "phone": "+33 6 12 34 56 78",
-  "linkedin": "linkedin.com/in/jean-dupont",
+  "linkedin": "linkedin.com/in/john-doe",
   "location": "Paris, France"
 }
 ```
 
-### 3. Génère le PDF
+### 3. Generate the PDF
 
 ```bash
 python cv.py
 ```
 
-Le script te demande :
-1. Le nom du fichier JSON d'entrée (ex: `file/mon_cv.json`)
-2. Le nom du PDF à générer (ex: `jean_dupont_cv.pdf`)
+The script will prompt you for:
+1. Input JSON filename (e.g. `file/my_cv.json`)
+2. Output PDF name (e.g. `john_doe_cv.pdf`)
 
-Si le contenu dépasse une page, le script l'indique et n'écrit rien — ajuste ton JSON.
+If the content exceeds one page, the script will report the overflow and write nothing — just trim your JSON and try again.
 
-## 📂 Structure
+## 📂 Project Structure
 
 ```
 cv_generator/
-├── cv.py              # Script principal — génération PDF (reportlab)
+├── cv.py              # Main script — PDF generation (reportlab)
 ├── file/
-│   └── demo.json      # Exemple de CV (HEC Finance, Goldman Sachs)
-└── test.pdf           # PDF de démo généré à partir de demo.json
+│   └── demo.json      # Sample CV (HEC Finance, Goldman Sachs)
+└── test.pdf           # Demo PDF generated from demo.json
 ```
 
-## 🗂️ Schéma JSON
+## 🗂️ JSON Schema
 
-| Champ | Type | Description |
+| Field | Type | Description |
 |---|---|---|
-| `summary` | `string` | Paragraphe d'introduction |
-| `education` | `array` | Liste des formations |
-| `education[].university` | `string` | Nom de l'école |
-| `education[].degree` | `string` | Intitulé du diplôme |
-| `education[].date` | `string` | Période (ex: `2023 – 2025`) |
-| `education[].bullets` | `array` | Points clés (strings ou objets avec sous-bullets) |
-| `experience` | `array` | Liste des expériences |
-| `experience[].company` | `string` | Nom de l'entreprise |
-| `experience[].title` | `string` | Intitulé du poste |
-| `experience[].bullets` | `array` | Réalisations (strings ou `{main, sub_bullets}`) |
-| `skills` | `object` | Catégories de compétences (clé → valeur) |
+| `summary` | `string` | Introduction paragraph |
+| `education` | `array` | List of education entries |
+| `education[].university` | `string` | School name |
+| `education[].degree` | `string` | Degree title |
+| `education[].date` | `string` | Period (e.g. `2023 – 2025`) |
+| `education[].bullets` | `array` | Key points (strings or objects with sub-bullets) |
+| `experience` | `array` | List of work experiences |
+| `experience[].company` | `string` | Company name |
+| `experience[].title` | `string` | Job title |
+| `experience[].bullets` | `array` | Achievements (strings or `{main, sub_bullets}`) |
+| `skills` | `object` | Skill categories (key → value) |
 
-## 🔒 Confidentialité
+## 🔒 Privacy
 
-Le `.gitignore` exclut automatiquement tous les fichiers `*.json` et `*.pdf` — **sauf** `file/demo.json` et `test.pdf`. Tes vrais CVs et tes infos personnelles ne seront jamais committés par accident.
+The `.gitignore` automatically excludes all `*.json` and `*.pdf` files — **except** `file/demo.json` and `test.pdf`. Your real CVs and personal info will never be accidentally committed.
 
-## 🛠️ Stack technique
+## 🛠️ Tech Stack
 
-- **Python 3** — stdlib uniquement + `reportlab`
-- **reportlab** — génération PDF (Times Roman, tables, paragraphes)
+- **Python 3** — stdlib only + `reportlab`
+- **reportlab** — PDF generation (Times Roman, tables, paragraphs)
